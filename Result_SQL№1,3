@@ -1,0 +1,9 @@
+INSERT INTO `books` (`id_book`, `isbn`, `name`, `date`, `number_pages`, `id_genre`) VALUES (NULL, '978-5-389-11211-8', 'терикон', '2020-10-11', '400', '3');
+
+-----------------------------------------------
+SELECT       `id_author`,
+             COUNT(`id_author`) AS `count_books`
+    FROM     `books_author`
+    GROUP BY `id_author`
+    ORDER BY `count_books` DESC
+    LIMIT    1;
