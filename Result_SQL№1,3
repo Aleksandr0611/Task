@@ -1,9 +1,12 @@
 INSERT INTO `books` (`id_book`, `isbn`, `name`, `date`, `number_pages`, `id_genre`) VALUES (NULL, '978-5-389-11211-8', 'терикон', '2020-10-11', '400', '3');
 
------------------------------------------------
+_________________________________________________
 SELECT       `id_author`,
              COUNT(`id_author`) AS `count_books`
     FROM     `books_author`
     GROUP BY `id_author`
     ORDER BY `count_books` DESC
     LIMIT    1;
+________________________________________________
+
+SELECT books.name, genres.name_genre, authors.name_author, authors.surname FROM ((genres INNER JOIN books ON genres.id_genre = books.id_genre) INNER JOIN books_author ON books.id_book = books_author.id_book) INNER JOIN authors ON books_author.id_author = authors.id_author WHERE genres.id_genre=(SELECT id_genre FROM genres WHERE name_genre='Фантастика') ORDER BY books.name, genres.name_genre, authors.name_author, authors.surname

@@ -17,6 +17,9 @@
         if(!preg_match("/[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,3}/i", $_POST['mail']))
         	 {echo   ("Регистрация пользователей с таким почтовым адресом невозможна!".$back);
           exit;}
+               if(preg_match("/[0-9a-z_]+@gmail.com$/i", $_POST['mail']))
+                    { echo   ("Регистрация пользователей с @gmail.com почтовым адресом невозможна!".$back);
+                    exit;}
 		$name = trim(strip_tags($_POST['name']));
 		$phone = trim(strip_tags($_POST['phone']));
 		$mail = trim(strip_tags($_POST['mail']));

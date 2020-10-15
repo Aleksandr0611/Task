@@ -5,7 +5,6 @@ $replace = "";
 $document = "5*(4-2)";
 
 $text = preg_replace($search, $replace, $document);
-echo $text."<br>";
 
 
    $s = $text;
@@ -18,12 +17,10 @@ echo $text."<br>";
    	       if ($s[$i] == '(')
    	        {
               $counter++;
-              echo $counter."<br>";
    	        }
            else
    	        {
               $counter--;
-              echo $counter."<br>";
             }
            if ($counter < 0)
             {
